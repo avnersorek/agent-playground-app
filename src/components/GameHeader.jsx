@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export function GameHeader({ round }) {
   return (
     <div className="header">
@@ -5,4 +7,8 @@ export function GameHeader({ round }) {
       <p className="round">Round: {round}</p>
     </div>
   )
+}
+
+GameHeader.propTypes = {
+  round: PropTypes.number.isRequired
 }

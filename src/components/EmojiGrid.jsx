@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export function EmojiGrid({ emojis, onEmojiClick, side }) {
   return (
     <div className={`side ${side}-side`}>
@@ -15,4 +17,10 @@ export function EmojiGrid({ emojis, onEmojiClick, side }) {
       </div>
     </div>
   )
+}
+
+EmojiGrid.propTypes = {
+  emojis: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onEmojiClick: PropTypes.func.isRequired,
+  side: PropTypes.oneOf(['left', 'right']).isRequired
 }

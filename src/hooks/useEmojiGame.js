@@ -1,25 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { generateRound } from '../utils/emojiUtils'
 
 export function useEmojiGame() {
   const [round, setRound] = useState(1)
-  const [leftEmojis, setLeftEmojis] = useState([])
-  const [rightEmojis, setRightEmojis] = useState([])
-  const [matchingEmoji, setMatchingEmoji] = useState('')
 
-  useEffect(() => {
-    startNewRound()
-  }, [])
+  // Initialize game state using lazy initialization
+  const [gameState, setGameState] = useState(() => generateRound())
 
   const startNewRound = () => {
-    const { leftEmojis, rightEmojis, matchingEmoji } = generateRound()
-    setLeftEmojis(leftEmojis)
-    setRightEmojis(rightEmojis)
-    setMatchingEmoji(matchingEmoji)
+    setGameState(generateRound())
   }
 
   const handleEmojiClick = (emoji) => {
-    if (emoji === matchingEmoji) {
+    if (emoji === gameState.matchingEmoji) {
       setRound(round + 1)
       startNewRound()
     }
@@ -27,8 +20,8 @@ export function useEmojiGame() {
 
   return {
     round,
-    leftEmojis,
-    rightEmojis,
+    leftEmojis: gameState.leftEmojis,
+    rightEmojis: gameState.rightEmojis,
     handleEmojiClick
   }
 }
