@@ -14,7 +14,7 @@ The game displays two 5x5 grids of emojis side by side. One emoji in the left gr
 
 ## Technical Implementation
 
-For architecture, code structure, and development guidelines, see [prompts/implement.md](prompts/implement.md).
+For architecture, code structure, and development guidelines, see [docs/implement.md](docs/implement.md).
 
 
 ## General instructions
