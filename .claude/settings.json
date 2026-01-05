@@ -16,7 +16,7 @@
       "Bash(npm test:*)",
       "Bash(kubectl get:*)",
       "Bash(kubectl logs:*)",
-      "mcp__chrome-devtools__*"
+      "mcp__chrome-devtools-mcp__*"
     ],
     "deny": [],
     "ask": [],
